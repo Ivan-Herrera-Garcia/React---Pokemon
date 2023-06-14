@@ -1,0 +1,36 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+// Variables
+$regal-blue: #034378;
+$san-juan: #2d4e68;
+$bermuda: #77d7b9;
+$white: #fff;
+$black: #000;
+$open-sans: 'Open Sans',
+sans-serif;
+// clear-fix mixin
+@mixin cf {
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(217deg, rgba(116, 255, 158, 0.8), rgba(255,0,0,0) 70.71%),     
+              linear-gradient(127deg, rgba(187, 241, 190, 0.8), rgba(0,255,0,0) 70.71%),        
+              linear-gradient(336deg, rgba(116, 255, 158, 0.8), rgba(0,0,255,0) 70.71%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  font-family: $open-sans;
+}
+
