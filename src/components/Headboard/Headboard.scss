@@ -1,5 +1,7 @@
 @import "~../../../../App.scss";
 
+//Variable de tamaño de pantalla
+$imagen: 451px;
 
 .encabezado {
   width: 100%;
@@ -15,6 +17,26 @@ body {
   margin-top: 0px;
 }
 
+
+.App-logo {
+  height: 100%;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 4s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 a {
   text-decoration: none;
@@ -35,6 +57,13 @@ h4 {
 
   height: 100px;
   background-color: #2f302f;
+
+  @media (max-width: $imagen) {
+
+    .react {
+      visibility: hidden;
+    }
+  }
   
   > .ui.container{
       display: flex;

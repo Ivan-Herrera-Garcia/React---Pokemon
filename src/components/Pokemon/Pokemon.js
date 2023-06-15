@@ -7,16 +7,6 @@ import {image} from '../../assets'
 
 export function Pokemon() {
 
-        function getFirst(cadena) {
-          const arr = cadena.split(",");
-        
-          let img = diccionario[arr[0]];
-          if (img === null && img === undefined) {
-            img = diccionario[1];
-          } 
-          return img
-        }
-
         const url = "https://pokedex-api-server.onrender.com/api/v1/pokedex?limit=50"
         //La api originalmente cuenta con paginado de 10 pokemon por pagina y hasta la fecha de 09/06/2023 son
         //1008 pokemons en total
@@ -29,15 +19,44 @@ export function Pokemon() {
           Lucha: image.tipo_Lucha,
           Normal: image.tipo_Normal,
           Planta: image.tipo_Planta,
-          Psiquico: image.tipo_Psiquico,
-          Tierra: image.tipo_Roca,
+          Psíquico: image.tipo_Psiquico,
+          Roca: image.tipo_Roca,
           Veneno: image.tipo_Veneno,
           Agua: image.tipo_Agua,
           Bicho: image.tipo_Bicho,
-          Eléctrico: image.tipo_Electrico
-          
+          Eléctrico: image.tipo_Electrico,
+          Volador: image.tipo_Volador,
+          Tierra: image.tipo_Tierra,
+          Acero: image.tipo_Hierro,
+          Hada: image.tipo_Hada,
+          Siniestro: image.tipo_Siniestro,
+          Fantasma: image.tipo_Fantasma,
+          Dragón: image.tipo_Dragon
+        }
+
+        const colores = {
+          Fuego: "#fe6434",
+          Hielo: "#abd3f3",
+          Lucha: "#CC7728",
+          Normal: "#E7E2DF",
+          Planta: "#5edf65",
+          Psíquico: "#E281A8",
+          Roca: "#7B8F98",
+          Veneno: "#BD73B0",
+          Agua: "#abd3f3",
+          Bicho: "#dddf5e",
+          Eléctrico: "#fecd00",
+          Volador: "#E7E2DF",
+          Tierra: "#7B8F98",
+          Acero: "#7B8F98",
+          Hada: "#E281A8",
+          Siniestro: "#BD73B0",
+          Fantasma: "#6CA8BA",
+          Dragón: "#767bc0",
 
         }
+
+       
 
         const fetchApu = async () => {
             const response = await fetch(url)
@@ -68,18 +87,45 @@ export function Pokemon() {
           
               
             <div class="row">
-           
-              <div class="example-2 card">
+              <div class="example-2 card" >
                 <br/>
-                <div class="wrapper"  style={{backgroundImage: `url(${todo.imagen})`}}>
+                <div class="wrapper"  style={{backgroundImage: `url(${todo.imagen})`, backgroundColor: `${colores[todo.tipo.split(", ")[0]]}`}}>
                   <div class='header'><div class="date">
-                    <span><img src={getFirst(todo.tipo)} width={20} alt='Tipos'></img></span>
+                    <span>
+                    {todo.tipo.split(", ").map ( (res, index) => {
+                      if (res === "Dragón") 
+                    { return <img src={diccionario[res]} alt={res} width={23} style={{marginRight:`5px`}}/>;} 
+                    else {
+                       return <img src={diccionario[res]} alt={res} width={20} style={{marginRight:`5px`}}/>;}
+                    })}
+                    </span>
                   </div></div>
                   <div class="data">
                     <div class="content">
-                      <span class="author">ID: {todo._id}</span>
+                      <span class="author">ID: {todo._id} </span>
                       <h1 class="title">{todo.nombre}</h1>
-                      <p class="text">{todo.descripcionversionx}</p>
+                      <div class="header"><div class="PuntosBase"> 
+                        <div className='Info'>
+                       
+                       <table>
+                        <td style={{ width: `17%`}}>
+                        <p style={{fontSize: `20px`}}>  
+                        <img src={image.PS} alt='PS' width={25}/> {todo.puntosbase.ps}<br/>
+                          <img src={image.logo_ataque} alt='PS' width={25}/> {todo.puntosbase.ataque}<br/>
+                          <img src={image.logo_defensa} alt='PS' width={25}/> {todo.puntosbase.defensa} <br/>
+                          <img src={image.logo_velocidad} alt='PS' width={25}/> {todo.puntosbase.velocidad}</p>
+                         
+                        </td>
+                        <td  style={{ width: `83%`, textAlign: 'justify'}}>
+                          {todo.descripcionversionx} <br/> {todo.descrpcionversiony}
+                        </td>
+
+                       </table>
+                        
+                          </div>
+                      </div> 
+                      
+                     </div>
                     </div>
                   </div>
                 </div>

@@ -1,6 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 
-// Variables
+
+// Variables Tamaños de pantallas
+$mediano: 867px;
+$pequeno: 797px;
+$mini: 665px;
+$moviles: 450px;
+
 $regal-blue: #034378;
 $san-juan: #2d4e68;
 $bermuda: #77d7b9;
@@ -22,6 +28,7 @@ sans-serif;
 
 * {
   box-sizing: border-box;
+  
 }
 
 
@@ -40,6 +47,12 @@ h4 {
   color: #000000;
 }
 
+.PuntosBase {
+  text-decoration: none;
+  list-style-type: none;
+  color: #000;
+}
+
 .load {
   text-align: center;
   padding-left: 42%;
@@ -56,8 +69,17 @@ h4 {
 // Base styles
 .card {
   float: left;
-  padding: 0 1.5rem;
+  padding: 0 1%; //Tamaño horizontal de la card
   width: 50%;
+
+  @media (max-width: $moviles) {
+    width: 100%;
+  }
+
+  @media (max-width: 670px) {
+    width: 100%;
+  }
+
   .menu-content {
     @include cf;
     margin: 0;
@@ -82,7 +104,31 @@ h4 {
   .wrapper {
     background-color: linear-gradient(to left, #027b50, #00ff6a);  
 
-    min-height: 310px; //tamaño
+    min-height: 550px; //tamaño
+
+    @media (max-width: $mediano) {
+      min-height: 500px;
+    }
+
+    @media (max-width: $pequeno) {
+      min-height: 475px;
+    }
+
+    @media (max-width: $mini) {
+      min-height: 650px;     
+    }
+    @media (max-width: $moviles) {
+      min-height: 500px;
+      
+      .card {
+        width: 100px;
+      }
+    }
+
+    @media (max-width: 340px) {
+      min-height: 600px;
+    }
+
     position: relative;
     overflow: hidden;
     box-shadow: 0 19px 38px rgba($black, 0.3), 0 15px 12px rgba($black, 0.2);
@@ -102,6 +148,16 @@ h4 {
       padding: 1em;
       position: relative;
       z-index: 1;
+      
+      .Info {
+        display: flex;
+        margin-left: auto;
+      .MoreInfo {
+        margin-left: 100px;
+      }
+
+      
+    }
     }
   }
   .author {
@@ -114,7 +170,8 @@ h4 {
   .text {
     height: 70px;
     margin: 0;
-    color: #000
+    color: #000;
+
   }
   input[type='checkbox'] {
     display: none;
@@ -133,8 +190,8 @@ h4 {
     //background: url(https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg) center / cover no-repeat;
     background-Size: contain;
     background-repeat: no-repeat;
-      
-
+    
+    background-size: 80%;
     
     &:hover {
       .menu-content {
@@ -152,14 +209,6 @@ h4 {
     .date {
       float: left;
       font-size: 12px;
-
-      .Fuego {
-       // background-image: url("./../../assets/Fuego.png");
-        src:"./../../assets/Fuego.png" ;
-      }
-
-  
-    
     }
   }
   .menu-content {

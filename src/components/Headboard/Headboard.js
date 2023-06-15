@@ -3,13 +3,19 @@ import {Container, Button} from "semantic-ui-react"
 import {socialData} from "./../../utils"
 import { map } from 'lodash';
 import "./Headboard.scss";
+import logo from "./../../logo.svg";
+import Pokeball from "../../assets/Pokeball.png";
 
 export function Headboard() {
   return (
     <div className='top-bar'>
         <div className='top-bar'>
             <Container>
-              <br/>
+            <div className='top-bar'>
+
+           <img src={Pokeball} className="App-logo" alt="logo" />  
+            <img src={logo} className="App-logo react" alt="logo" />  
+            </div>
                 <div>
                     {map(socialData, (Datos) => (
                         <Button key={Datos.type}
@@ -19,8 +25,6 @@ export function Headboard() {
                             color={Datos.type}
                             icon={Datos.type} />
                     ))}
-
-                    
                 </div>
             </Container>
         </div>
