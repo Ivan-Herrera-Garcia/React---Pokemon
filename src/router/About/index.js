@@ -1,1 +1,1 @@
-export * from "./About-Me";
+export * from "./About";

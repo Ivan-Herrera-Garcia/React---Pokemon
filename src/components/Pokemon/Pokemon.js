@@ -11,10 +11,6 @@ export function Pokemon() {
         const  [page, setPage] = useState(50);
         const isCurrent = page > 1000;
 
-        
-
-  
-
         const diccionario = {
           Fuego: image.tipo_Fuego,
           Hielo: image.tipo_Hielo,
@@ -94,7 +90,7 @@ export function Pokemon() {
             <div ><div class="load">
             <Oval color="#FF0000" height={200} width={200} /></div>
             <br/>
-            <h2 style={{paddingLeft:'850px'}}> Cargando...</h2>
+            <h2 style={{paddingLeft:'850px'}}> Cargando (30 Seg)...</h2>
             <img src={image.pikachu} width={1050} alt="Cargando" style={{paddingLeft: '700px'}}/>
       
             </div> 

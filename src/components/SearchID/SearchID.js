@@ -117,7 +117,7 @@ export function SearchID() {
                  
                  
                  
-                 <td  style={{ width: `10%`, textAlign: 'justify'}}>
+                 <td  style={{ width: `50%`, textAlign: 'justify'}}>
                  ID: {idJson._id}
                 <h1>{idJson.nombre}</h1>
                     {idJson.descripcionversionx} {idJson.descripcionversiony}
@@ -127,7 +127,7 @@ export function SearchID() {
                 Altura: <b>{idJson.altura}</b></p>
                   </td>
 
-                  <tr style={{ width: `17%`}}>
+                  <tr style={{ width: `50%`}}>
                   <p style={{fontSize: `20px`}}>  
                   <img src={image.PS} alt='PS' width={25}/> {idJson.puntosbase.ps}<br/>
                     <img src={image.logo_ataque} alt='PS' width={25}/> {idJson.puntosbase.ataque}<br/>

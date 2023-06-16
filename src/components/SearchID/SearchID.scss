@@ -48,18 +48,42 @@ sans-serif;
   background-size: 80%;
   
   float: left;
-  padding: 0 12%; //Tamaño horizontal de la card
+  padding: 0 15%; //Tamaño horizontal de la card
+  margin-left: 100px;
+  width: 80%;
   
-  width: 100%;
+  @media (max-width: 1980px) {
+    
+    .wrapper {
+      background-size: 50%;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    background-size: 50%;
+    margin-left: -100px;
+    padding-right: 10px;
+    .wrapper {
+      background-size: 50%;
+    }
+  }
+
+  @media (max-width: 950px) {
+    margin-left: -140px;
+    padding-right: 0px;
+    width: 145%;    
+    background-size: 50px;
+
+    .wrapper {
+      background-size: 50%;
+    }
+  }
+
 }
 .ButtonMas {
       position: fixed;
       bottom: 20px;
       right: 20px;
-
-  
-
-  
 
 }
 
