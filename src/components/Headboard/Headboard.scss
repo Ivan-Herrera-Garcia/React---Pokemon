@@ -52,14 +52,26 @@ h4 {
   color: #000000;
 }
 
+.Botones_icons {
+  @media (max-width: 500px) {
+    padding-top: 90px;
+  }
+}
+
+.Iconos {
+  
+  
+  @media (max-width: 500px) {
+    visibility: hidden;
+  }
+}
 
 .top-bar {
 
   height: 100px;
   background-color: #2f302f;
 
-  @media (max-width: $imagen) {
-
+  @media (max-width: 670px) {
     .react {
       visibility: hidden;
     }

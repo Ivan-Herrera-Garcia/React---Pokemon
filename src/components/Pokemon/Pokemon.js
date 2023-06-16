@@ -1,18 +1,20 @@
 import React, {useEffect, useState} from 'react'
 import {Oval} from 'react-loader-spinner'
-import './Pokemon.scss'
+import './Pokemon-diseño.scss'
 import {image} from '../../assets'
-
+import {Button} from "semantic-ui-react"
 
 
 export function Pokemon() {
+      
+        const [todos, setTodos] = useState();
+        const  [page, setPage] = useState(50);
+        const isCurrent = page > 1000;
 
-        const url = "https://pokedex-api-server.onrender.com/api/v1/pokedex?limit=50"
-        //La api originalmente cuenta con paginado de 10 pokemon por pagina y hasta la fecha de 09/06/2023 son
-        //1008 pokemons en total
-      
-        const [todos, setTodos] = useState()
-      
+        
+
+  
+
         const diccionario = {
           Fuego: image.tipo_Fuego,
           Hielo: image.tipo_Hielo,
@@ -56,23 +58,38 @@ export function Pokemon() {
 
         }
 
-       
+        let url = `https://pokedex-api-server.onrender.com/api/v1/pokedex?limit=${page}`;
+        //La api originalmente cuenta con paginado de 10 pokemon por pagina y hasta la fecha de 09/06/2023 son
+        //1008 pokemons en total
+      
 
         const fetchApu = async () => {
             const response = await fetch(url)
             const responseJson = await response.json()
             setTodos(responseJson)
         }
-      
+
+     
+            
+          
+       
+          
           useEffect(() => {
             fetchApu()
-          }, [])
+
+          }, [page])
+
+         
       
-      
+        const loadMore = () => {
+          setPage((prevState) => prevState + 100);
+        };
           
-        return (
+        return (<div>
          <div>
-          { 
+          {
+           
+
           !todos ? 
             <div ><div class="load">
             <Oval color="#FF0000" height={200} width={200} /></div>
@@ -83,10 +100,11 @@ export function Pokemon() {
             </div> 
           : todos.docs.map( (todo,index) => (
        
-
-          
+            
+         
               
             <div class="row">
+              
               <div class="example-2 card" >
                 <br/>
                 <div class="wrapper"  style={{backgroundImage: `url(${todo.imagen})`, backgroundColor: `${colores[todo.tipo.split(", ")[0]]}`}}>
@@ -117,7 +135,7 @@ export function Pokemon() {
                          
                         </td>
                         <td  style={{ width: `83%`, textAlign: 'justify'}}>
-                          {todo.descripcionversionx} <br/> {todo.descrpcionversiony}
+                          {todo.descripcionversionx} {todo.descripcionversiony}
                         </td>
 
                        </table>
@@ -135,6 +153,14 @@ export function Pokemon() {
                   
           ))
           }
+        
+         
+         </div>
+         <div className='ButtonMas'>
+            
+            {!isCurrent && (
+               <Button circular color='purple' icon='plus' onClick={loadMore} size='big'/>)}
+                </div>
          </div>
         );
       }

@@ -7,6 +7,8 @@ import logo_ataque from "./ATK.png";
 import logo_defensa from "./DEF.png";
 import PS from "./PS.png";
 import logo_velocidad from "./Velocidad.png";
+import logo_ataque_esp from "./Ataque_Esp.png";
+import logo_defensa_esp from "./Defensa_Esp.png";
 
 import tipo_Fuego from "./Fuego.png";
 import tipo_Hielo from "./hielo.png";
@@ -33,6 +35,8 @@ const image = {
     logo_ataque,
     logo_defensa,
     logo_velocidad,
+    logo_ataque_esp,
+    logo_defensa_esp,
     PS,
     pikachu,
     pochita,

@@ -121,12 +121,18 @@ h4 {
       min-height: 500px;
       
       .card {
-        width: 100px;
+        width: 500px;
       }
     }
 
     @media (max-width: 340px) {
-      min-height: 600px;
+      min-height: 500px;
+
+      .card {
+        width: 500px;
+       
+      
+      }
     }
 
     position: relative;
@@ -190,8 +196,7 @@ h4 {
     //background: url(https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg) center / cover no-repeat;
     background-Size: contain;
     background-repeat: no-repeat;
-    
-    background-size: 80%;
+    background-size: 60%;
     
     &:hover {
       .menu-content {
