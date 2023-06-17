@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {Input, Button, Label} from 'semantic-ui-react'
 import {image} from "./../../assets"
+import {variable} from "./../../utils"
 import "./SearchID.scss"
 
 export function SearchID() {
@@ -72,7 +73,7 @@ export function SearchID() {
           
         } else { 
           try {
-            const response = await fetch(`https://pokedex-api-server.onrender.com/api/v1/pokedex/id/${id}`);
+            const response = await fetch(`${variable}/id/${id}`);
             const data = await response.json();
             setIdJson(data); 
           } catch(error) {

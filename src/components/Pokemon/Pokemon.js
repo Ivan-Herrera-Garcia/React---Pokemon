@@ -3,6 +3,7 @@ import {Oval} from 'react-loader-spinner'
 import './Pokemon-diseño.scss'
 import {image} from '../../assets'
 import {Button} from "semantic-ui-react"
+import {variable} from "./../../utils"
 
 
 export function Pokemon() {
@@ -54,7 +55,7 @@ export function Pokemon() {
 
         }
 
-        let url = `https://pokedex-api-server.onrender.com/api/v1/pokedex?limit=${page}`;
+        let url = `${variable}?limit=${page}`;
         //La api originalmente cuenta con paginado de 10 pokemon por pagina y hasta la fecha de 09/06/2023 son
         //1008 pokemons en total
       
